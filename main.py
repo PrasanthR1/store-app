@@ -32,7 +32,7 @@ class GetOrUpdateProductById(Resource):
         return jsonify(output)
 
 
-class WriteReadTopic(Resource):
+class ReadWriteTopic(Resource):
     def post(self, topic):
         json = request.get_json()
         KafkaQueue.producer(self,topic,json)
@@ -44,7 +44,7 @@ class WriteReadTopic(Resource):
 api.add_resource(HelloWorld, "/")
 api.add_resource(GetOrCreateProduct, "/products", endpoint="products")
 api.add_resource(GetOrUpdateProductById, "/product/<int:pid>", endpoint="product")
-api.add_resource(WriteReadTopic, "/post/<string:topic>", endpoint="post")
+api.add_resource(ReadWriteTopic, "/post/<string:topic>", endpoint="post")
 
 
 if __name__ == "__main__":
