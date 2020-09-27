@@ -28,7 +28,7 @@ class Mongo:
     def post_product():
         try:
             product = mongo.db.products
-            r = request.get_json()
+            # r = request.get_json()
             # print(r)
             p_id = request.json["product_id"]
             p_description = request.json["product_description"]
