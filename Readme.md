@@ -1,6 +1,9 @@
 ## `Store Application`
 This Application Performs CURD Operations like `GET`, `PUT`, `POST`, `UPDATE`
 and `DELETE` using RESTAPI
+
+![alt text](https://github.com/prasanthari/store-app/blob/master/store-app.png?raw=true)
+
 ## Prerequisites
 * MongoDB 4.4.1
 * Python 3.4+
