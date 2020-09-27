@@ -6,7 +6,8 @@ kafka_client = KafkaClient(hosts="localhost:9092")
 
 
 class KafkaQueue(Mongo):
-    def producer(self,topic, json):
+    @staticmethod
+    def producer(topic, json):
         # print(json)
         producer = KafkaProducer(
             bootstrap_servers="localhost:9092",
@@ -14,7 +15,8 @@ class KafkaQueue(Mongo):
         )
         producer.send(topic, json)
 
-    def consumers(self):
+    @staticmethod
+    def consumers():
         consumer = KafkaConsumer(
             "product",
             group_id="my-group",
@@ -27,4 +29,4 @@ class KafkaQueue(Mongo):
         for msg in consumer:
             msgs = msg.value
             # print(msgs)
-            Mongo.update_product_price(self, msgs)
+            Mongo.update_product_price(msgs)
